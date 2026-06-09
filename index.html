@@ -22,26 +22,32 @@
     <p id="message"></p>
 </div>
 
-<!-- Firebase Modülleri -->
 <script type="module">
   // Firebase SDK'larını içe aktarma
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } 
   from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  
+  // Google Analytics SDK'sını içe aktarma
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
-  // SİZİN YAPILANDIRMANIZ (Burayı Firebase'den aldığınız bilgilerle değiştirin)
+  // SİZİN YAPILANDIRMANIZ (Measurement ID eklendi)
   const firebaseConfig = {
     apiKey: "AIzaSyC_XjCLQdWID1t4ayEDHn5YV4XC81k9oTY",
     authDomain: "borartun0390.firebaseapp.com",
     projectId: "borartun0390",
     storageBucket: "borartun0390.firebasestorage.app",
     messagingSenderId: "147721349234",
-    appId: "1:147721349234:web:8d2f2fde9b0b7bbb763aeb"
+    appId: "1:147721349234:web:8d2f2fde9b0b7bbb763aeb",
+    measurementId: "G-JMZ7CZHCXB" // Analytics ID'niz buraya eklendi
   };
 
   // Firebase'i başlat
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  
+  // Analytics'i başlat
+  const analytics = getAnalytics(app);
 
   // DOM Elemanları
   const emailInput = document.getElementById('email');
